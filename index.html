@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat Box</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/9a4fd79c93.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div id="body">
+      <div id="chat-circle" class="btn btn-raised"></div>
+
+      <div class="chat-box" id="chat-box">
+        <div class="chat-box-header">
+          ChatBot
+          <span class="chat-box-toggle"><i class="material-icons"></i></span>
+        </div>
+        <div class="chat-box-body">
+          <div class="chat-box-overlay"></div>
+          <div class="chat-logs">
+            <div class="listItems">
+              <ul class="list" id="list">
+                  <p>Was kann ich für Sie tun? </p>
+                 
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="chat-input" id="chat-input">
+          <input type="text" id="myInput" placeholder="Send a message..." />
+          <button type="submit" class="submit" id="submit">
+            <i class="fa-solid fa-paper-plane" onclick="newElement()"></i>
+          </button>
+        </div>
+      </div>
+
+      <script>
+        const circle = document.getElementById("chat-circle");
+        const box = document.getElementById("chat-box");
+
+        function newElement() {
+          var li = document.createElement("li");
+          var inputValue = document.getElementById("myInput").value;
+          var t = document.createTextNode(inputValue);
+          li.appendChild(t);
+          document.getElementById("list").appendChild(li);
+          inputValue.value = "";
+        }
+
+        circle.addEventListener("click", function () {
+          /*  box.style.display="block"; */
+          box.classList.toggle("active");
+
+        });
+      </script>
+    </div>
+  </body>
+</html>
